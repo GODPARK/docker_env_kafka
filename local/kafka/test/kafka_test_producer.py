@@ -2,7 +2,7 @@ from kafka import KafkaProducer
 from json import dumps
 import time
 
-producer = KafkaProducer(bootstrap_servers=['127.0.0.1:9092'])
+producer = KafkaProducer(bootstrap_servers=['localhost:9092'])
 
 start = time.time()
 for i in range(10):
