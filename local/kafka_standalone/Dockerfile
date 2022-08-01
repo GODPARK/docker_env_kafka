@@ -11,11 +11,7 @@ ENV KAFKA_SCALA=2.12 \
     SERVICE_PATH=/usr/local \
     KAFKA_DATA=/data/kafka
     
-ENV KAFKA_FULL_VERSION=${KAFKA_SCALA}-${KAFKA_VERSION} \
-    ZOO_BIN=${SERVICE_PATH}/bin\
-    KAFKA_BIN=${SERVICE_PATH}/bin\
-    ZOO_CONF=${SERVICE_PATH}/config\
-    KAFKA_CONF=${SERVICE_PATH}/config
+ENV KAFKA_FULL_VERSION=${KAFKA_SCALA}-${KAFKA_VERSION}
 
 RUN apt-get upgrade -y
 RUN apt-get update -y
