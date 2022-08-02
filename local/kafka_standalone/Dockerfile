@@ -11,11 +11,7 @@ ENV KAFKA_SCALA=2.12 \
     SERVICE_PATH=/usr/local \
     KAFKA_DATA=/data/kafka
     
-ENV KAFKA_FULL_VERSION=${KAFKA_SCALA}-${KAFKA_VERSION} \
-    ZOO_BIN=${SERVICE_PATH}/bin\
-    KAFKA_BIN=${SERVICE_PATH}/bin\
-    ZOO_CONF=${SERVICE_PATH}/config\
-    KAFKA_CONF=${SERVICE_PATH}/config
+ENV KAFKA_FULL_VERSION=${KAFKA_SCALA}-${KAFKA_VERSION}
 
 RUN apt-get upgrade -y
 RUN apt-get update -y
@@ -34,13 +30,14 @@ RUN mv ${WORK_PATH}/kafka_${KAFKA_FULL_VERSION} ${SERVICE_PATH}/kafka
 
 COPY ./module/* ${WORK_PATH}/
 COPY ./kafka_setting.json ${WORK_PATH}/
-RUN chmod 777 ${WORK_PATH}/start.sh
+RUN chmod +x ${WORK_PATH}/*.sh
 
 RUN mkdir /data
 RUN mkdir ${KAFKA_DATA}
 RUN mkdir /data/zookeeper
 RUN mkdir /data/log
 
+RUN ifconfig | grep inet | grep -v 127.0.0.1
 RUN python3 ${WORK_PATH}/file_replace.py --config ${WORK_PATH}/kafka_setting.json
 
 CMD ["/root/temp/start.sh"]

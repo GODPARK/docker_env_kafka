@@ -1,0 +1,94 @@
+{
+    "change": [
+         {
+             "work_name": "zookeeper config change",
+             "file": "/usr/local/kafka1/config/zookeeper.properties",
+             "before": "dataDir=/tmp/zookeeper",
+             "after": "dataDir=/data/zookeeper"
+         },
+         {
+             "work_name": "zookeeper config change",
+             "file": "/usr/local/kafka1/config/zookeeper.properties",
+             "before": "admin.enableServer=false",
+             "after": "admin.enableServer=true"
+         },
+         {
+             "work_name": "zookeeper config change",
+             "file": "/usr/local/kafka1/config/zookeeper.properties",
+             "before": "# admin.serverPort=8080",
+             "after": "admin.serverPort=8080"
+         },
+         {
+             "work_name": "broker1 id change",
+             "file": "/usr/local/kafka1/config/server.properties",
+             "before": "broker.id=0",
+             "after": "broker.id=1"
+         },
+         {
+             "work_name": "broker1 listners change",
+             "file": "/usr/local/kafka1/config/server.properties",
+             "before": "#listeners=PLAINTEXT://:9092",
+             "after": "listeners=PLAINTEXT://:9092"
+         },
+         {
+             "work_name": "broker1 listners change",
+             "file": "/usr/local/kafka1/config/server.properties",
+             "before": "#advertised.listeners=PLAINTEXT://your.host.name:9092",
+             "after": "advertised.listeners=PLAINTEXT://localhost:9092,PLAINTEXT://kafka.pjhdev.site:9092"
+         },
+         {
+             "work_name": "broker1 data path change",
+             "file": "/usr/local/kafka1/config/server.properties",
+             "before": "log.dirs=/tmp/kafka-logs",
+             "after": "log.dirs=/data/kafka1"
+         },
+         {
+             "work_name": "broker1 data path change",
+             "file": "/usr/local/kafka1/config/server.properties",
+             "before": "log.retention.hours=168",
+             "after": "log.retention.hours=24"
+         },
+         {
+             "work_name": "broker1 log",
+             "file": "/usr/local/kafka1/config/log4j.properties",
+             "before": "${kafka.logs.dir}",
+             "after": "/data/log/kafka1"
+         },
+         {
+             "work_name": "broker2 id change",
+             "file": "/usr/local/kafka2/config/server.properties",
+             "before": "broker.id=0",
+             "after": "broker.id=2"
+         },
+         {
+             "work_name": "broker2 listners change",
+             "file": "/usr/local/kafka2/config/server.properties",
+             "before": "#listeners=PLAINTEXT://:9092",
+             "after": "listeners=PLAINTEXT://:9093"
+         },
+         {
+             "work_name": "broker2 listners change",
+             "file": "/usr/local/kafka2/config/server.properties",
+             "before": "#advertised.listeners=PLAINTEXT://your.host.name:9092",
+             "after": "advertised.listeners=PLAINTEXT://localhost:9093,PLAINTEXT://kafka.pjhdev.site:9093"
+         },
+         {
+             "work_name": "broker2 data path change",
+             "file": "/usr/local/kafka2/config/server.properties",
+             "before": "log.dirs=/tmp/kafka-logs",
+             "after": "log.dirs=/data/kafka2"
+         },
+         {
+             "work_name": "broker2 data path change",
+             "file": "/usr/local/kafka2/config/server.properties",
+             "before": "log.retention.hours=168",
+             "after": "log.retention.hours=24"
+         },
+         {
+             "work_name": "broker2 log",
+             "file": "/usr/local/kafka2/config/log4j.properties",
+             "before": "${kafka.logs.dir}",
+             "after": "/data/log/kafka2"
+         }
+     ]
+ }

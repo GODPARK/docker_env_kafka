@@ -1,6 +1,7 @@
 import os
 import argparse
 import json
+import socket
 
 def is_file_path_exists(file_path):
     if os.path.exists(file_path):
@@ -45,14 +46,24 @@ def replace_file_content(work_name, file_path, before, after):
     try:
         with open(file_path, "r+") as config:
             content = config.read()
+            
+            after_final = after
+            if '{HOST_IP}' in after:
+                host_ip = socket.gethostbyname(socket.gethostname())
+                after_final = after_final.replace(
+                    '{HOST_IP}',
+                    host_ip
+                )
+            
             content = content.replace(
                 before,
-                after
+                after_final
             )
+            
             config.seek(0)
             config.write(content)
             config.truncate()
-        print("[success] replace ["+ file_path + "] as-is: "+ before + "--> to-be: " + after)
+        print("[success] replace ["+ file_path + "] as-is: "+ before + "--> to-be: " + after_final)
     except:
         exit_with_msg(msg= "[" + work_name + "]"+ file_path + "  = file replace error")
 
