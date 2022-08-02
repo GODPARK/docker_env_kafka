@@ -34,7 +34,7 @@
              "work_name": "broker1 listners change",
              "file": "/usr/local/kafka1/config/server.properties",
              "before": "#advertised.listeners=PLAINTEXT://your.host.name:9092",
-             "after": "advertised.listeners=PLAINTEXT://localhost:9092"
+             "after": "advertised.listeners=PLAINTEXT://localhost:9092,PLAINTEXT://kafka.pjhdev.site:9092"
          },
          {
              "work_name": "broker1 data path change",
@@ -70,7 +70,7 @@
              "work_name": "broker2 listners change",
              "file": "/usr/local/kafka2/config/server.properties",
              "before": "#advertised.listeners=PLAINTEXT://your.host.name:9092",
-             "after": "advertised.listeners=PLAINTEXT://localhost:9093"
+             "after": "advertised.listeners=PLAINTEXT://localhost:9093,PLAINTEXT://kafka.pjhdev.site:9093"
          },
          {
              "work_name": "broker2 data path change",
