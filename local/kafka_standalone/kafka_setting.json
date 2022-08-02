@@ -1,6 +1,12 @@
 {
    "change": [
         {
+            "work_name": "zookeeper jvm heam memory",
+            "file": "/usr/local/kafka/bin/zookeeper-server-start.sh",
+            "before": "-Xmx512M -Xms512M",
+            "after": "-Xmx128M -Xms128M"
+        },
+        {
             "work_name": "zookeeper config change",
             "file": "/usr/local/kafka/config/zookeeper.properties",
             "before": "dataDir=/tmp/zookeeper",
@@ -53,6 +59,12 @@
             "file": "/usr/local/kafka/config/log4j.properties",
             "before": "${kafka.logs.dir}",
             "after": "/data/log"
+        },
+        {
+            "work_name": "server start jvm heap memory",
+            "file": "/usr/local/kafka/bin/kafka-server-start.sh",
+            "before": "-Xmx1G -Xms1G",
+            "after": "-Xmx256M -Xms128M"
         }
     ]
 }
