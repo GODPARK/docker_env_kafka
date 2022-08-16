@@ -4,7 +4,7 @@ DOCKER_CONTAINER=kafka
 DOCKER_IMAGE_NAME=kafka-loal
 PORT=9092
 
-install: clean build run
+install: clean build run check
 
 build:
 	-docker build -t $(DOCKER_IMAGE_NAME) .
@@ -12,6 +12,9 @@ build:
 clean:
 	-docker stop $(DOCKER_CONTAINER)
 	-docker rm $(DOCKER_CONTAINER)
+
+check:
+	-docker ps | grep ${DOCKER_CONTAINER}
 
 run:
 	-docker run -d -p $(PORT):$(PORT) --name $(DOCKER_CONTAINER) $(DOCKER_IMAGE_NAME)
